@@ -1,0 +1,19 @@
+mat-toolbar {
+  background: #1d1e22;
+  padding-left: 100px;
+  padding-right: 100px;
+
+  .logo {
+    margin-top: 10px;
+    width: 150px;
+  }
+
+  .sep{
+    color: white;
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}

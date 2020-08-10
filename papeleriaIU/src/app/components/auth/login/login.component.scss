@@ -1,0 +1,36 @@
+.wallpaper{
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../../images/banner.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+:host{
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+}
+
+mat-card{
+  padding: 40px;
+}
+
+.mat-form-field{
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title, mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+button{
+  width: 100%;
+}

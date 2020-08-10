@@ -1,0 +1,34 @@
+<div class="wallpaper"></div>
+<mat-card>
+  <mat-card-title>
+    Iniciar Sesión
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+      <p>
+        <mat-form-field>
+          <input
+            type="email"
+            matInput
+            placeholder="Correo"
+            formControlName="correo"
+          />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input
+            type="password"
+            matInput
+            placeholder="Contraseña"
+            formControlName="password"
+          />
+        </mat-form-field>
+      </p>
+      <button type="submit" mat-raised-button color="primary">Iniciar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+<div *ngIf="usuario$ | async as articulo">
+  <p>Articulo: {{ articulo.nombre }}</p>
+</div>

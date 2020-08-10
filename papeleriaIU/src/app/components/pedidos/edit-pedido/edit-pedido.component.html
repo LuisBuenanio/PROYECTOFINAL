@@ -1,0 +1,103 @@
+<div class="new-articulo-container">
+  <form
+    [formGroup]="editPedidoForm"
+    (ngSubmit)="editPedido(editPedidoForm.value)"
+  >
+    <mat-form-field>
+      <mat-label>Cliente</mat-label>
+      <mat-select formControlName="usuario_id">
+        <mat-option *ngFor="let user of users" [value]="user.id">
+          {{ user.nombre + " " + user.apellido }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="Descripcion"
+        formControlName="descripcion"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="estado">
+        <mat-option *ngFor="let item of status" [value]="item.id">
+          {{ item.text }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="date" matInput placeholder="Fecha" formControlName="fecha" />
+    </mat-form-field>
+
+    <div class="table-responsive">
+      <h3>Articulos</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="20%">Nombre</th>
+            <th width="20%">Cantidad</th>
+            <th width="5%">Opciones</th>
+          </tr>
+        </thead>
+
+        <tbody class="tbody-pedidos" formArrayName="articulos">
+          <tr *ngFor="let item of editPedidoForm.get('articulos').controls; let i = index"
+          [formGroupName]="i">
+            <td>
+              <mat-form-field>
+                <mat-label>Articulo</mat-label>
+                <mat-select formControlName="id">
+                  <mat-option
+                    *ngFor="let articulo of articulos"
+                    [value]="articulo.id"
+                  >
+                    {{ articulo.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <input
+                  type="number"
+                  matInput
+                  placeholder="Cantidad"
+                  formControlName="cantidad"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <button mat-mini-fab color="primary"
+                type="button"
+                (click)="addArticuloFormGroup()"
+              >
+                +
+              </button>
+              <button mat-mini-fab color="warn"
+                type="button"
+                (click)="removeOrClearArticulo(i)"
+              >
+                x
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container-button">
+      <input type="submit" class="mat-flat-button" value="Guardar" />
+      <input
+        mat-dialog-close
+        type="button"
+        class="mat-flat-button cerrar"
+        value="Cerrar"
+      />
+    </div>
+  </form>
+</div>

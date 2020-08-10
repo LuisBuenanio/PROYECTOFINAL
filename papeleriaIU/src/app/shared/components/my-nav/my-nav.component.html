@@ -1,0 +1,57 @@
+<mat-toolbar>
+  <a routerLink="/"><img class="logo" [src]="logo"/></a>
+  <span class="fill-remaining-space"></span>
+
+  <a (click)="scroll('informacion')" routerLinkActive="active">
+    <button mat-button>
+      Información
+    </button>
+  </a>
+
+  <a (click)="scroll('nosotros')" routerLinkActive="active">
+    <button mat-button>
+      Nosotros
+    </button>
+  </a>
+
+  <a (click)="scroll('footer')" routerLinkActive="active">
+    <button mat-button>
+      Contactos
+    </button>
+  </a>
+
+  <span class="sep">|</span>
+
+  <a routerLink="/mis-pedidos" routerLinkActive="active" *ngIf="authSvc.userData">
+    <button mat-button>
+      Mis Pedidos
+    </button>
+  </a>
+
+  <a routerLink="/admin/usuarios" routerLinkActive="active" *ngIf="authSvc.getAdmin()">
+    <button mat-button>
+      Administrar
+    </button>
+  </a>
+
+  <a *ngIf="authSvc.userData else showLogin" (click)="onLogout()">
+    <button mat-button>
+      Cerrar sesion
+    </button>
+  </a>
+
+  <ng-template #showLogin>
+    <a routerLink="/login" routerLinkActive="active">
+      <button mat-button>
+        Iniciar Sesión
+      </button>
+    </a>
+  </ng-template>
+
+  <a routerLink="/register" routerLinkActive="active" *ngIf="!(authSvc.userData)">
+    <button mat-button>
+      Registrarse
+    </button>
+  </a>
+
+</mat-toolbar>

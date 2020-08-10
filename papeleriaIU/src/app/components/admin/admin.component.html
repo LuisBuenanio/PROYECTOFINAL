@@ -1,0 +1,47 @@
+<mat-toolbar color="primary" class="navbar">
+  <span (click)="opened = !opened">
+    <mat-icon>menu</mat-icon>
+  </span>
+  &nbsp;&nbsp;
+  <a routerLink="/">
+    <span>Home</span>
+  </a>
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sideNav [(opened)]="opened" mode="side">
+    &nbsp;&nbsp;
+    <mat-nav-list>
+      <a mat-list-item routerLink="usuarios">
+        <mat-icon>people</mat-icon>
+        Usuarios
+      </a>
+    </mat-nav-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="articulos">
+        <mat-icon>book</mat-icon>
+        Articulos
+      </a>
+    </mat-nav-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="pedidos">
+        <mat-icon>book</mat-icon>
+        Pedidos
+      </a>
+    </mat-nav-list>
+
+    <mat-divider></mat-divider>
+  </mat-sidenav>
+
+  <mat-sidenav-container>
+    <div class="container-prin">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-container>
+</mat-sidenav-container>

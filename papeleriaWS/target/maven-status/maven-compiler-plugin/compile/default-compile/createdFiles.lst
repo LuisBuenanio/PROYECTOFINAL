@@ -1,0 +1,16 @@
+data\Rol.class
+process\DireccionPr.class
+data\Conexion.class
+com\mycompany\papeleriaws\resources\JavaEE8Resource.class
+process\ArticuloPr.class
+process\UsuarioPr.class
+data\Articulo.class
+com\mycompany\papeleriaws\JAXRSConfiguration.class
+ws\ArticuloWS.class
+process\RolPr.class
+data\Pedido.class
+data\Usuario.class
+process\PedidoPr.class
+ws\PedidoWS.class
+data\Direccion.class
+ws\UsuarioWS.class

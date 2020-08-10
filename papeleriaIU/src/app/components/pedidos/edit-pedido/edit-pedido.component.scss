@@ -1,0 +1,30 @@
+.new-articulo-container {
+  display: flex;
+  flex-direction: column;
+  form {
+    margin-bottom: 20px;
+    input.mat-flat-button {
+      margin: 5%;
+      width: 40%;
+      background: #004776;
+      a:hover {
+        background: #002776;
+      }
+    }
+
+    input.mat-flat-button.cerrar {
+      background: #d33;
+    }
+
+    .container-button {
+      min-height: 80px;
+      input{
+        color: #fff;
+      }
+    }
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}
+

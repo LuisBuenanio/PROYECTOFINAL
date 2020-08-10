@@ -1,0 +1,83 @@
+<div class="new-articulo-container">
+  <form
+    [formGroup]="newPedidoForm"
+    (ngSubmit)="addNewPedido(newPedidoForm.value)"
+  >
+
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="Descripcion"
+        formControlName="descripcion"
+      />
+    </mat-form-field>
+
+    <div class="table-responsive">
+      <h3>Articulos</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="20%">Nombre</th>
+            <th width="20%">Cantidad</th>
+            <th width="5%">Opciones</th>
+          </tr>
+        </thead>
+
+        <tbody class="tbody-pedidos" formArrayName="articulos">
+          <tr *ngFor="let email of newPedidoForm.get('articulos').controls; let i = index"
+          [formGroupName]="i">
+            <td>
+              <mat-form-field>
+                <mat-label>Articulo</mat-label>
+                <mat-select formControlName="id">
+                  <mat-option
+                    *ngFor="let articulo of articulos"
+                    [value]="articulo.id"
+                  >
+                    {{ articulo.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <input
+                  type="number"
+                  min="1"
+                  matInput
+                  placeholder="Cantidad"
+                  formControlName="cantidad"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <button mat-mini-fab color="primary"
+                type="button"
+                (click)="addArticuloFormGroup()"
+              >
+                +
+              </button>
+              <button mat-mini-fab color="warn"
+                type="button"
+                (click)="removeOrClearArticulo(i)"
+              >
+                x
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container-button">
+      <input type="submit" class="mat-flat-button" value="Guardar" />
+      <input
+        mat-dialog-close
+        type="button"
+        class="mat-flat-button cerrar"
+        value="Cerrar"
+      />
+    </div>
+  </form>
+</div>

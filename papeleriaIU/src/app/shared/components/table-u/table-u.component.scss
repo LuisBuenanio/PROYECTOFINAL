@@ -1,0 +1,27 @@
+/* Structure */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.container-btn-new {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 1rem -0.6rem;
+
+  button {
+    width: 25%;
+    color: #fff;
+    background: #005086;
+    cursor: pointer;
+  }
+}
+
+.mat-column-opciones {
+  width: 130px;
+}

@@ -1,0 +1,50 @@
+<div class="new-articulo-container">
+  <form
+    [formGroup]="editArticuloForm"
+    (ngSubmit)="editArticulo(editArticuloForm.value)"
+  >
+    <input type="hidden" formControlName="id" />
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input
+        matInput
+        placeholder="Nombre del Articulo"
+        formControlName="nombre"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Descripción</mat-label>
+      <input matInput placeholder="Descripción" formControlName="descripcion" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Cantidad</mat-label>
+      <input
+        type="number"
+        min="0"
+        step="1"
+        matInput
+        placeholder="Cantidad"
+        formControlName="cantidad"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Valor</mat-label>
+      <input
+        type="number"
+        min="0"
+        matInput
+        placeholder="Valor"
+        formControlName="valor"
+      />
+    </mat-form-field>
+    <div class="container-button">
+      <input type="submit" class="mat-flat-button" value="Guardar" />
+      <input
+        mat-dialog-close
+        type="button"
+        class="mat-flat-button cerrar"
+        value="Cerrar"
+      />
+    </div>
+  </form>
+</div>
